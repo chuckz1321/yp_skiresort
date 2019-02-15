@@ -12,7 +12,7 @@ spring:
   application:
     name: yp_skiresort
 server:
-  port: 8762
+  port: 8765
 
 ---
 spring:
