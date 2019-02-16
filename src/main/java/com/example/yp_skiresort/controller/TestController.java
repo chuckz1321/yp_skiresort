@@ -1,5 +1,6 @@
 package com.example.yp_skiresort.controller;
 
+import com.example.yp_skiresort.Entity.ResponseMessage;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +15,10 @@ public class TestController {
     @ApiOperation(value="welcome", notes="welcome by url id")
     @ApiImplicitParam(name = "id", value = "ID", required = true, dataType = "Long",paramType = "path")
     @RequestMapping(value="/{id}", method= RequestMethod.GET)
-    public String getBook(@PathVariable Long id) {
-        return "welcome " + id;
+    public String welcome(@PathVariable Long id) {
+        ResponseMessage<String> rm = new ResponseMessage<>();
+        rm.setHttpCode("200");
+        rm.setResponseBody("welcome " + id);
+        return rm.convert2Json();
     }
 }
