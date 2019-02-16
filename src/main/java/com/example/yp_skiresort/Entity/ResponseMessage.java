@@ -1,7 +1,5 @@
 package com.example.yp_skiresort.Entity;
 
-import com.google.gson.Gson;
-
 public class ResponseMessage<T> {
 
     private String httpCode;
@@ -24,8 +22,4 @@ public class ResponseMessage<T> {
         this.responseBody = responseBody;
     }
 
-    public String convert2Json(){
-        Gson gson = new Gson();
-        return gson.toJson(this);
-    }
 }

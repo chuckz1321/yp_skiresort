@@ -17,7 +17,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.yp_skiresort.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.yp_skiresort.Controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
