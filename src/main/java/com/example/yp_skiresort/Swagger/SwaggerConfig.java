@@ -1,5 +1,6 @@
 package com.example.yp_skiresort.Swagger;
 
+import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -18,7 +19,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.example.yp_skiresort.Controller"))
-                .paths(PathSelectors.any())
+                .paths(Predicates.not(PathSelectors.regex("/error")))
                 .build();
     }
     private ApiInfo apiInfo() {
