@@ -63,6 +63,7 @@
             <version>10.1</version>
         </dependency>
 
+
     </dependencies>
 
     <dependencyManagement>
@@ -96,7 +97,7 @@
         <repository>
             <id>db2</id>
             <name>jcc</name>
-            <url>https://mvnrepository.com/artifact/com.ibm.db2.jcc/db2jcc4</url>
+            <url>https://artifacts.alfresco.com/nexus/content/repositories/public/</url>
         </repository>
 
     </repositories>
