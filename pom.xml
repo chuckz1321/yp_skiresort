@@ -62,12 +62,6 @@
             <artifactId>db2jcc4</artifactId>
             <version>10.1</version>
         </dependency>
-        <dependency>
-            <groupId>com.ibm.db2.jcc</groupId>
-            <artifactId>db2jcc_license_cu</artifactId>
-            <version>10.1</version>
-        </dependency>
-
 
     </dependencies>
 
@@ -97,6 +91,12 @@
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
+        </repository>
+
+        <repository>
+            <id>db2</id>
+            <name>jcc</name>
+            <url>https://mvnrepository.com/artifact/com.ibm.db2.jcc/db2jcc4</url>
         </repository>
 
     </repositories>
