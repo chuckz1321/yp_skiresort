@@ -49,6 +49,26 @@
             <version>2.7.0</version>
         </dependency>
 
+        <!-- mybatis dependency -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <!-- db2 denpendencies-->
+        <dependency>
+            <groupId>com.ibm.db2.jcc</groupId>
+            <artifactId>db2jcc4</artifactId>
+            <version>10.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ibm.db2.jcc</groupId>
+            <artifactId>db2jcc_license_cu</artifactId>
+            <version>10.1</version>
+        </dependency>
+
+
     </dependencies>
 
     <dependencyManagement>
@@ -78,6 +98,7 @@
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
         </repository>
+
     </repositories>
 
 </project>
