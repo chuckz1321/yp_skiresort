@@ -14,7 +14,7 @@
         <result column="youth_ticket_price" jdbcType="INTEGER" property="youthTicketPrice" />
         <result column="child_ticket_price" jdbcType="INTEGER" property="childTicketPrice" />
         <result column="currency" jdbcType="VARCHAR" property="currency" />
-        <result column="slope_rating" jdbcType="INTEGER" property="slopeRating" />
+        <result column="slope_rating" jdbcType="FLOAT" property="slopeRating" />
         <result column="tbar" jdbcType="BOOLEAN" property="Tbar"/>
         <result column="circulating_ropeway" jdbcType="BOOLEAN" property="circulatingRopeway"/>
         <result column="chair_lift" jdbcType="BOOLEAN" property="chairLift" />
@@ -32,6 +32,18 @@
         select
         <include refid="all_fields"/>
         from t_skiresort
-        where adult_ticket_price>#{min} and adult_ticket_price<#{max}
+        where adult_ticket_price>#{min} and adult_ticket_price &lt; #{max}
+    </select>
+    <select id="getResortListBySlopeRating" parameterType="float" resultMap="skiResort">
+        select
+        <include refid="all_fields"/>
+        from t_skiresort
+        where slope_rating = #{rating}
+    </select>
+    <select id="getResortListByPartialName" parameterType="float" resultMap="skiResort">
+        select
+        <include refid="all_fields"/>
+        from t_skiresort
+        where resort_name like '%#{resortName}%'
     </select>
 </mapper>
