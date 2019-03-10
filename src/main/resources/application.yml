@@ -13,8 +13,8 @@ spring:
     name: yp_skiresort
   datasource:
     url: jdbc:db2://dashdb-txn-sbox-yp-dal09-03.services.dal.bluemix.net:50000/BLUDB
-    username: dpw95833
-    password: 8w-mttxq3js7rd3v
+    username: pqw40220
+    password: dl5wz-5dbkjz8xrm
     driver-class-name: com.ibm.db2.jcc.DB2Driver
 
 server:
