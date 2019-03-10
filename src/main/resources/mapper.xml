@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.mapper.UserMapper">
+<mapper namespace="com.example.yp_skiresort.Dao.SkiResortDao">
     <resultMap id="skiResort" type="com.example.yp_skiresort.Entity.SkiResort">
         <result column="resort_name" jdbcType="VARCHAR" property="resortName"/>
         <result column="continent" jdbcType="VARCHAR" property="continent"/>
@@ -15,12 +15,13 @@
         <result column="child_ticket_price" jdbcType="INTEGER" property="childTicketPrice" />
         <result column="currency" jdbcType="VARCHAR" property="currency" />
         <result column="slope_rating" jdbcType="FLOAT" property="slopeRating" />
-        <result column="tbar" jdbcType="BOOLEAN" property="Tbar"/>
-        <result column="circulating_ropeway" jdbcType="BOOLEAN" property="circulatingRopeway"/>
-        <result column="chair_lift" jdbcType="BOOLEAN" property="chairLift" />
+        <result column="tbar" jdbcType="INTEGER" property="Tbar"/>
+        <result column="circulating_ropeway" jdbcType="INTEGER" property="circulatingRopeway"/>
+        <result column="chair_lift" jdbcType="INTEGER" property="chairLift" />
+        <result column="snow_reliability" jdbcType="VARCHAR" property="snowReliability"/>
     </resultMap>
     <sql id="all_fields">
-        resort_name,continet,country,province,altitude,beginner_slope_distance,intermediate_slope_distance,difficult_slope_distance,adult_ticket_price,youth_ticket_price,child_ticket_price,currency,slope_rating,tbar,circulating_ropeway,chair_lift
+        resort_name,continent,country,province,altitude,beginner_slope_distance,intermediate_slope_distance,difficult_slope_distance,adult_ticket_price,youth_ticket_price,child_ticket_price,currency,slope_rating,tbar,circulating_ropeway,chair_lift,snow_reliability
     </sql>
     <select id="getSkiResortListByCountry" parameterType="string" resultMap="skiResort">
         select
