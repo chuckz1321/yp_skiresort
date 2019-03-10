@@ -17,6 +17,16 @@ public class SkiResort {
     private boolean Tbar;
     private boolean circulatingRopeway;
     private boolean chairLift;
+    private String snowReliability;
+
+    public String getSnowReliability() {
+        return snowReliability;
+    }
+
+    public void setSnowReliability(String snowReliability) {
+        this.snowReliability = snowReliability;
+    }
+
 
     public String getResortName() {
         return resortName;
