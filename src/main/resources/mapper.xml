@@ -39,12 +39,13 @@
         select
         <include refid="all_fields"/>
         from t_skiresort
-        where slope_rating = #{rating}
+        where slope_rating > #{rating,jdbcType=DOUBLE}
     </select>
-    <select id="getResortListByPartialName" parameterType="float" resultMap="skiResort">
+    <select id="getResortListByPartialName" parameterType="string" resultMap="skiResort">
         select
         <include refid="all_fields"/>
         from t_skiresort
-        where resort_name like '%#{resortName}%'
+          where resort_name like CONCAT(CONCAT('%', #{name,jdbcType=VARCHAR}) ,'%')
+
     </select>
 </mapper>
