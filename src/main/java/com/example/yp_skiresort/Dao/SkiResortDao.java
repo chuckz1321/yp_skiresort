@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface SkiResortDao {
     public abstract List<SkiResort> getSkiResortListByCountry(String country);
     public abstract List<SkiResort> getResortListByPriceRange(@Param("max") int max, @Param("min") int min);
-    public abstract List<SkiResort> getResortListBySlopeRating(int rating);
-    public abstract List<SkiResort> getResortListByPartialName(String resortName);
+    public abstract List<SkiResort> getResortListBySlopeRating(@Param("rating") float rating);
+    public abstract List<SkiResort> getResortListByPartialName(@Param("name") String resortName);
 }
