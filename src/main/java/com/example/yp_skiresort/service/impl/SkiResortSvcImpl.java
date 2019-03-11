@@ -22,7 +22,7 @@ public class SkiResortSvcImpl implements SkiResortSvc {
         List<SkiResort> resorts = resortDao.getResortListByPriceRange(max,min);
         return resorts;
     }
-    public List<SkiResort> getResortListBySlopeRating(int rating){
+    public List<SkiResort> getResortListBySlopeRating(float rating){
         List<SkiResort> resorts = resortDao.getResortListBySlopeRating(rating);
         return resorts;
     }
