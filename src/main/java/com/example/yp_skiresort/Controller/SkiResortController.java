@@ -20,6 +20,9 @@ public class SkiResortController {
     @RequestMapping(value="/test",method=RequestMethod.GET)
     @ResponseBody
     public ResponseMessage<List<SkiResort>> test(@RequestParam("country") String country){
+        svc.getResortListByPartialName("aarjaeng");
+        svc.getResortListByPriceRange(100,0);
+        svc.getResortListBySlopeRating(Float.parseFloat("2.0"));
         ResponseMessage message = new ResponseMessage();
         message.setResponseBody(svc.getSkiResortListByCountry(country));
         message.setHttpCode("200");
