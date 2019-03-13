@@ -30,4 +30,8 @@ public class SkiResortSvcImpl implements SkiResortSvc {
         List<SkiResort> resorts = resortDao.getResortListByPartialName(resortName);
         return resorts;
     }
+    public List<SkiResort> getResortListByMultipleConditions(String resortName, int max, int min, float rating, String country){
+        List<SkiResort> resorts = resortDao.getResortListByMultipleConditions(resortName,max,min,rating,country);
+        return resorts;
+    }
 }
