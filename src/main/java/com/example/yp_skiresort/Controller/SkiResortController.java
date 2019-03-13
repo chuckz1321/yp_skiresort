@@ -14,24 +14,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/resort")
 public class SkiResortController {
     @Autowired
     SkiResortSvcImpl svc;
 
+    @ApiOperation(value="test123", notes="test")
     @RequestMapping(value="/test",method=RequestMethod.GET)
     @ResponseBody
-    public ResponseMessage<List<SkiResort>> test(@RequestParam("country") String country){
+    public ResponseMessage<List<SkiResort>> test(@RequestParam("country") String country, @RequestParam("max") int max, @RequestParam("min") int min, @RequestParam(value="name",required=false) String name){
         //svc.getResortListByPartialName("aarjaeng");
         //svc.getResortListByPriceRange(100,0);
         //svc.getResortListBySlopeRating(Float.parseFloat("2.0"));
-        svc.getResortListByMultipleConditions("aarjaeng",2000, 0,2,"Canada");
+        ;
         ResponseMessage message = new ResponseMessage();
-        message.setResponseBody(svc.getSkiResortListByCountry(country));
+        message.setResponseBody(svc.getResortListByMultipleConditions(name,max, min,2,country));
         message.setHttpCode("200");
         return message;
     }
 
-    @ApiOperation(value="search ", notes="search skiresort information ")
+    @ApiOperation(value="search", notes="search skiresort information ")
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public List<SkiResort> processQuery(@RequestBody RequestQuery inputQuery){
         String query = inputQuery.getQuery();
@@ -81,7 +83,7 @@ public class SkiResortController {
                         break;
                     case "price":
                         if( !queryParts[1].equals("") ) {
-                            String[] range_end = queryParts[1].split("=");
+                            String[] range_end = queryParts[1].split("-");
                             max = Integer.parseInt(range_end[1]);
                             min = Integer.parseInt(range_end[0]);
                         }
