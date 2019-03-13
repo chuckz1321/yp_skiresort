@@ -48,4 +48,26 @@
           where resort_name like CONCAT(CONCAT('%', #{name,jdbcType=VARCHAR}) ,'%')
 
     </select>
+    <select id="getResortListByMultipleConditions" resultMap="skiResort">
+        select
+        <include refid="all_fields"/>
+        from t_skiresort
+        where 1=1 and <if test="name != ''">
+                resort_name like CONCAT(CONCAT('%',#{name}),'%')
+              and
+              </if>
+              <if test="min!= -1">
+                adult_ticket_price &gt;#{min} and
+              </if>
+              <if test="max!=-1">
+                adult_ticket_price &lt;#{max} and
+              </if>
+              <if test="rating!=''">
+              slope_rating &gt;=#{rating} and
+              </if>
+              <if test="country!=''">
+              lower(country,'en_US') = lower(#{country},'en_US') and
+              </if>
+              1=1
+    </select>
 </mapper>
