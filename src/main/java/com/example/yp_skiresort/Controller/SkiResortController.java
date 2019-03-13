@@ -5,6 +5,8 @@ import com.example.yp_skiresort.Entity.ResponseMessage;
 import com.example.yp_skiresort.Entity.SkiResort;
 import com.example.yp_skiresort.service.impl.SkiResortSvcImpl;
 import com.netflix.discovery.converters.Auto;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/resort", method = RequestMethod.POST)
 public class SkiResortController {
     @Autowired
     SkiResortSvcImpl svc;
@@ -30,7 +31,8 @@ public class SkiResortController {
         return message;
     }
 
-    @ResponseBody
+    @ApiOperation(value="search ", notes="search skiresort information ")
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
     public List<SkiResort> processQuery(@RequestBody RequestQuery inputQuery){
         String query = inputQuery.getQuery();
         List<SkiResort> resorts = new ArrayList<SkiResort>();

@@ -1,4 +1,5 @@
 package com.example.yp_skiresort.Dao;
+
 import java.util.*;
 import com.example.yp_skiresort.Entity.SkiResort;
 import org.apache.ibatis.annotations.Mapper;
