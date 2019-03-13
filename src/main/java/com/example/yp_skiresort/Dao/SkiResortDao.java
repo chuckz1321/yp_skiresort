@@ -12,4 +12,5 @@ public interface SkiResortDao {
     public abstract List<SkiResort> getResortListByPriceRange(@Param("max") int max, @Param("min") int min);
     public abstract List<SkiResort> getResortListBySlopeRating(@Param("rating") float rating);
     public abstract List<SkiResort> getResortListByPartialName(@Param("name") String resortName);
+    public abstract List<SkiResort> getResortListByMultipleConditions(@Param("name") String resortName, @Param("max") int max, @Param("min") int min, @Param("rating") float rating, @Param("country") String country);
 }
