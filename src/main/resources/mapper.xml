@@ -27,7 +27,7 @@
         select
         <include refid="all_fields"/>
         from t_skiresort
-        where country=#{country}
+        where lower(country,'en_US')=lower(#{country},'en_US')
     </select>
     <select id="getResortListByPriceRange" resultMap="skiResort">
         select
