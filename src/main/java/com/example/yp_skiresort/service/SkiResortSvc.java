@@ -9,4 +9,5 @@ public interface SkiResortSvc {
     public abstract List<SkiResort> getResortListByPriceRange(int max, int min);
     public abstract List<SkiResort> getResortListBySlopeRating(float rating);
     public abstract List<SkiResort> getResortListByPartialName(String resortName);
+    public abstract List<SkiResort> getResortListByMultipleConditions(String resortName, int max, int min, float rating, String country);
 }
