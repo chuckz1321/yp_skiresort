@@ -20,6 +20,7 @@ public class SkiResortController {
     SkiResortSvcImpl svc;
 
     @ApiOperation(value="test123", notes="test")
+    @CrossOrigin(origins={"*"})
     @RequestMapping(value="/test",method=RequestMethod.GET)
     @ResponseBody
     public ResponseMessage<List<SkiResort>> test(@RequestParam("country") String country, @RequestParam("max") int max, @RequestParam("min") int min, @RequestParam(value="name",required=false) String name){
