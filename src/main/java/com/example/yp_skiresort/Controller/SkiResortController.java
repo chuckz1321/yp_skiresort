@@ -42,68 +42,38 @@ public class SkiResortController {
         String query = inputQuery.getQuery();
         List<SkiResort> resorts = new ArrayList<SkiResort>();
         String[] subqueries = query.split("&");
-        if(subqueries.length == 1){
-            String[] queryParts = subqueries[0].split("=");
+        String country = "";
+        int max = -1;
+        int min = -1;
+        String resortName = "";
+        float rating = 0;
+        for(String subquery:subqueries){ String[] queryParts = subquery.split("=");
             switch(queryParts[0]){
                 case "country":
                     if( !queryParts[1].equals("") ) {
-                        resorts = svc.getSkiResortListByCountry(queryParts[1]);
+                        country = queryParts[1];
                     }
                     break;
                 case "price":
-                    if( !queryParts[1].equals("") ){
+                    if( !queryParts[1].equals("") ) {
                         String[] range_end = queryParts[1].split("-");
-                        int min = Integer.parseInt(range_end[0]);
-                        int max = Integer.parseInt(range_end[1]);
-                        resorts = svc.getResortListByPriceRange(max,min);
+                        max = Integer.parseInt(range_end[1]);
+                        min = Integer.parseInt(range_end[0]);
                     }
                     break;
                 case "resortname":
-                    if (!queryParts[1].equals("")){
-                        resorts = svc.getResortListByPartialName(queryParts[1]);
+                    if( !queryParts[1].equals("") ){
+                        resortName = queryParts[1];
                     }
                     break;
                 case "sloperating":
-                    if (!queryParts[1].equals("")){
-                        resorts = svc.getResortListBySlopeRating(Integer.parseInt(queryParts[1]));
+                    if( !queryParts[1].equals("") ){
+                        rating = Float.parseFloat(queryParts[1]);
                     }
                     break;
-            }
-        }
-        else{
-            String country = "";
-            int max = -1;
-            int min = -1;
-            String resortName = "";
-            float rating = 0;
-            for(String subquery:subqueries){
-                String[] queryParts = subquery.split("=");
-                switch(queryParts[0]){
-                    case "country":
-                        if( !queryParts[1].equals("") ) {
-                            country = queryParts[1];
-                        }
-                        break;
-                    case "price":
-                        if( !queryParts[1].equals("") ) {
-                            String[] range_end = queryParts[1].split("-");
-                            max = Integer.parseInt(range_end[1]);
-                            min = Integer.parseInt(range_end[0]);
-                        }
-                        break;
-                    case "resortname":
-                        if( !queryParts[1].equals("") ){
-                            resortName = queryParts[1];
-                        }
-                        break;
-                    case "sloperating":
-                        if( !queryParts[1].equals("") ){
-                            rating = Float.parseFloat(queryParts[1]);
-                        }
-                        break;
 
-                }
             }
+
             resorts = svc.getResortListByMultipleConditions(resortName,max,min,rating,country);
         }
 
